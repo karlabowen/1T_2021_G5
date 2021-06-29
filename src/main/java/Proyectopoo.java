@@ -59,7 +59,7 @@ public class Proyectopoo {
                             break;
                         case 3:
                             System.out.println("*** Torneo de videojuegos ***");
-                            
+                            torneoVG();
                             break;
                         case 4:
                             System.out.println("---Bye---");
@@ -120,8 +120,26 @@ public class Proyectopoo {
 // igual a carrera
     }
     
+     private static void torneoVG() {
+// igual a carrera
+    }
 
-
+     private static Carrera registrarCarrera() {
+        System.out.println("Creación de carrera"); 
+        System.out.println("Fecha (dd/mm/yyyy):");
+        //String
+        Date fecha=null;                   
+        System.out.println("Hora(hh:mm):"); 
+        Date hora=null;
+        System.out.println("Premio primer lugar:"); 
+        String premio1l=sc.nextLine();
+        System.out.println("Premio segundo lugar:"); 
+        String premio2l=sc.nextLine();
+        System.out.println("Premio tercer lugar:");
+        String premio3l=sc.nextLine();
+        return new Carrera(Id(), fecha, hora, premio1l, premio2l, premio3l);
+    
+    }
 
    
 
