@@ -20,7 +20,7 @@ public class Proyectopoo {
      */
     private static Scanner sc = new Scanner(System.in);
     private static ArrayList<Carrera> carreras = new ArrayList<>();
-
+        
 
     public static void main(String[] args) {
         // TODO code application logic here
@@ -95,15 +95,15 @@ public class Proyectopoo {
                     switch (opcion) {
                         case 1:
                             System.out.println("*** Crear nueva carrera ***");
-                           
+                            registrarCarrera();
                             break;
                         case 2:
                             System.out.println("*** Registrar participantes ***");
-                          
+                            registrarParticipante();
                             break;
                         case 3:
                             System.out.println("*** Registrar ganadores ***");
-                            
+                            registrarGanador();
                             break;
                         case 4:
                             System.out.println("Menu Principal");
@@ -140,8 +140,28 @@ public class Proyectopoo {
         return new Carrera(Id(), fecha, hora, premio1l, premio2l, premio3l);
     
     }
+     
+    private static void registrarParticipante() {
+        System.out.println("Ingrese Id de la carrera: ");
+        int id = sc.nextInt();
+        if(buscarCarrera(id)!=null){
+            System.out.println( "Registro de participantes en carrera del "+ buscarCarrera(id).getFecha());
+            System.out.print("ID del estudiante:");
+            int idE =sc.nextInt();
+            do{
+                System.out.print("ID del estudiante:");
+                idE =sc.nextInt();
+            }while(idE!=0);
+        }
+        private static Carrera buscarCarrera(int Id){
+        for(Carrera c: carreras){
+            if (c.getId()==Id){
+                return c;
+            }
+        }return null;
+    }
 
-   
+    
 
    
 
