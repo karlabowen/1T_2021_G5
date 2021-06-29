@@ -6,6 +6,7 @@
 
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -49,12 +50,12 @@ public class Proyectopoo {
                     switch (opcion) {
                         case 1:
                             System.out.println("*** Carrera 5K ***");
-                            
+                            leerCarrera();
                             carrera5k();
                             break;
                         case 2:
                             System.out.println("*** Competencia de Bandas musicales ***");
-                            
+                            competenciaBandaM();
                             break;
                         case 3:
                             System.out.println("*** Torneo de videojuegos ***");
@@ -71,6 +72,12 @@ public class Proyectopoo {
         }
 
     }
+    private static void leerCarrera() {
+        for(Carrera c: carreras){
+            System.out.println(c);
+        }
+    }
+   
 
     
 
@@ -109,8 +116,10 @@ public class Proyectopoo {
         }
 
     }
-
-   
+     private static void competenciaBandaM() {
+// igual a carrera
+    }
+    
 
 
 
