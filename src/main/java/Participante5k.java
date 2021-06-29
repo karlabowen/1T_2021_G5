@@ -8,6 +8,23 @@
  *
  * @author Karla
  */
-public class Participante5k {
-    
+import java.util.Date;
+
+
+class Participante5k extends Estudiante {
+    Date tiempo;
+
+    public Date getTiempo() {
+        return tiempo;
+    }
+
+    public void setTiempo(Date tiempo) {
+        this.tiempo = tiempo;
+    }
+
+    public Participante5k(Date tiempo, int id, String nombre) {
+        super(id, nombre);
+        this.tiempo = tiempo;
+    }
 }
+
