@@ -21,10 +21,16 @@ public class Proyectopoo {
     private static Scanner sc = new Scanner(System.in);
     private static ArrayList<Carrera> carreras = new ArrayList<>();
         
-
+    private static int Id(){ //Andree Fonseca 
+        return carreras.size()+1;
+    }
+    
     public static void main(String[] args) {
         // TODO code application logic here
         bienvenido();
+        carreras.add(new Carrera( Id(), null, null, "", "", ""));//Andree Fonseca 
+        carreras.add(new Carrera(Id(), null, null, "", "", ""));
+        carreras.add(new Carrera(Id(), null, null, "", "", ""));
         menuPrincipal();
 
     }
@@ -153,12 +159,47 @@ public class Proyectopoo {
                 idE =sc.nextInt();
             }while(idE!=0);
         }
+    }
         private static Carrera buscarCarrera(int Id){
         for(Carrera c: carreras){
             if (c.getId()==Id){
                 return c;
             }
         }return null;
+    }
+    private static void registrarGanador() {
+        System.out.println("Ingreso de primero lugar");
+        System.out.print("Id: ");
+        int id= sc.nextInt();
+        obtenerParticipante(id);
+        System.out.println("Tiempo: ");
+       // String tiempo= sc.nextLine();
+       Date tiempo=null;
+        obtenerParticipante(id).setTiempo(tiempo);
+        System.out.println("Ingreso de segundo lugar");
+        System.out.print("Id: ");
+        String id2= sc.nextLine();
+        obtenerParticipante(id);
+        System.out.println("Tiempo: ");
+       // String tiempo= sc.nextLine();
+       Date tiempo2=null;
+        obtenerParticipante(id).setTiempo(tiempo2);
+        System.out.println("Ingreso de tercer lugar");
+        System.out.print("Id: ");
+        String id3= sc.nextLine();
+        obtenerParticipante(id);
+        System.out.println("Tiempo: ");
+       // String tiempo= sc.nextLine();
+       Date tiempo3=null;
+        obtenerParticipante(id).setTiempo(tiempo3);
+        
+        
+    }
+
+    private static Participante5k obtenerParticipante(int id) {
+        System.out.println("Obtiene participante");
+         
+        return new Participante5k(null, 0, "Andree");//para prueba
     }
 
     
