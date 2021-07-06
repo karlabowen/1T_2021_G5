@@ -66,16 +66,15 @@ public class Proyectopoo {
                     sc.nextLine();
                     switch (opcion) {
                         case 1:
-                            System.out.println("*** Carrera 5K ***");
-                            leerCarrera();
+                            
                             carrera5k();
                             break;
                         case 2:
-                            System.out.println("*** Competencia de Bandas musicales ***");
+                            
                             competenciaBandaM();
                             break;
                         case 3:
-                            System.out.println("*** Torneo de videojuegos ***");
+                            
                             torneoVG();
                             break;
                         case 4:
@@ -89,11 +88,7 @@ public class Proyectopoo {
         }
 
     }
-    private static void leerCarrera() {
-        for(Carrera c: carreras){
-            System.out.println(c);
-        }
-    }
+
    
 
     
@@ -101,10 +96,16 @@ public class Proyectopoo {
     private static void carrera5k() {
         int opcion = -1;
         while (opcion != 4) {
+            System.out.println("");
+            System.out.println("*** Carrera 5K ***");
+            System.out.println("");
+            /////
+            System.out.println("");
             System.out.println("1. Crear nueva carrera");
             System.out.println("2. Registrar participantes");
             System.out.println("3. Registrar ganadores");
             System.out.println("4. Volver al menú principal");
+            System.out.println("Ingrese una opción");
             if (sc.hasNextInt()) {
                 opcion = sc.nextInt();
                 if (opcion == 1 || opcion == 2 || opcion == 3 || opcion == 4) {
@@ -112,7 +113,8 @@ public class Proyectopoo {
                     switch (opcion) {
                         case 1:
                             System.out.println("*** Crear nueva carrera ***");
-                            registrarCarrera();
+                            /////
+                            
                             break;
                         case 2:
                             System.out.println("*** Registrar participantes ***");
