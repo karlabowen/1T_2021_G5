@@ -28,18 +28,18 @@ public class Proyectopoo {
      * @param args the command line arguments
      */
     private static Scanner sc = new Scanner(System.in);
-    private static ArrayList<Carrera> carreras = new ArrayList<>();
-        
-    private static int Id(){ //Andree Fonseca 
-        return carreras.size()+1;
-    }
+    private static ArrayList<Estudiante> estudiantes = new ArrayList<>();
+    public static Carreras5k competenciaCarreras ;
+    public static BandasMusicales competenciaBM ;
+    // crear un TorneosVideojuegos competenciaVJ ;    
     
     public static void main(String[] args) {
         // TODO code application logic here
+        Proyectopoo m=new Proyectopoo();
+        m.cargarEstudiantes();
+        
+        
         bienvenido();
-        carreras.add(new Carrera( Id(), null, null, "", "", ""));//Andree Fonseca 
-        carreras.add(new Carrera(Id(), null, null, "", "", ""));
-        carreras.add(new Carrera(Id(), null, null, "", "", ""));
         menuPrincipal();
 
     }
@@ -48,9 +48,10 @@ public class Proyectopoo {
         System.out.println("\n" + "*************************");
         System.out.println("* Bienvenid@ al Sistema *");
         System.out.println("*************************");
-
     }
-
+    
+    
+    
     private static void menuPrincipal() {
         int opcion = -1;
         while (opcion != 4) {
@@ -58,6 +59,7 @@ public class Proyectopoo {
             System.out.println("2. Competencia de Bandas musicales");
             System.out.println("3. Torneo de videojuegos");
             System.out.println("4. Salir");
+            System.out.println("Ingrese una opción");
             if (sc.hasNextInt()) {
                 opcion = sc.nextInt();
                 if (opcion == 1 || opcion == 2 || opcion == 3 || opcion == 4) {
@@ -154,6 +156,38 @@ public class Proyectopoo {
         String premio3l=sc.nextLine();
         return new Carrera(Id(), fecha, hora, premio1l, premio2l, premio3l);
     
+    }
+     
+     public void cargarEstudiantes() {
+        //se crea inputstream con el metodo getresourceastream para que funcione con el jar
+        InputStream input = getClass().getClassLoader().getResourceAsStream("archivos/ESTUDIANTES.csv");
+
+        
+        BufferedReader br = null;
+        try {
+            String linea = null;
+            br = new BufferedReader(new InputStreamReader(input));
+            linea = br.readLine();//saltar la primera linea
+            while ((linea = br.readLine()) != null) //iterar mientras haya lineas
+            {
+                String[] info = linea.split(",");//separar los datos por coma
+                //crear objeto y agregar a la lista
+                estudiantes.add(new Estudiante(info[0],info[1],Character.toString(info[2].charAt(0)),info[3]));
+                        
+            }
+        } catch (FileNotFoundException ex) {
+            System.out.println("No se encuentra el archivo");
+        } catch (IOException ex) {
+            System.out.println("Error al leer el archivo");
+        } finally {
+            try {
+                if (br!=null)
+                br.close();
+            } catch (IOException ex) {
+                System.out.println("Error al cerrar el archivo");
+            }
+        }
+   
     }
      
     private static void registrarParticipante() {
