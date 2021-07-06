@@ -4,10 +4,19 @@
  * and open the template in the editor.
  */
 
+package proyectopoo;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
+import proyectopoo.Carrera5k.*;
+import proyectopoo.CompetenciaBandasMusicales.*;
+import proyectopoo.TorneoVideojuegos.*;
 
 /**
  *
