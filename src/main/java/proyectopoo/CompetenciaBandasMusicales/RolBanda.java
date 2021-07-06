@@ -9,6 +9,8 @@ package proyectopoo.CompetenciaBandasMusicales;
  *
  * @author Karla
  */
-public class RolBanda {
+enum RolBanda {
+  CANTANTE,GUITARRISTA,BAJISTA,BATERISTA,OTRO;
     
 }
+
