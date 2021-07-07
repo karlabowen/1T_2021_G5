@@ -319,3 +319,108 @@ public class Proyectopoo {
         competenciaCarreras = new Carreras5k(carreras);
       
     }
+     public static void cargarCompetenciasBM(){
+        //bandas
+        //banda1
+        Banda b1 = new Banda("Rock Bones","heart");
+        IntegranteBanda i1b1 = new IntegranteBanda(estudiantes.get(10));
+        b1.addIntegrante(i1b1);
+        IntegranteBanda i2b1 = new IntegranteBanda(estudiantes.get(11));
+        b1.addIntegrante(i2b1);
+        IntegranteBanda i3b1 = new IntegranteBanda(estudiantes.get(12));
+        b1.addIntegrante(i3b1);
+        
+        
+        //banda2
+        Banda b2 = new Banda("21P","heathens");
+        IntegranteBanda i1b2 = new IntegranteBanda(estudiantes.get(13));
+        b2.addIntegrante(i1b2);
+        IntegranteBanda i2b2 = new IntegranteBanda(estudiantes.get(14));
+        b2.addIntegrante(i2b2);
+        IntegranteBanda i3b2 = new IntegranteBanda(estudiantes.get(15));
+        b2.addIntegrante(i3b2);
+        
+        
+        
+        //banda3
+        Banda b3 = new Banda("Coldplay","yellow");
+        IntegranteBanda i1b3 = new IntegranteBanda(estudiantes.get(16));
+        b3.addIntegrante(i1b3);
+        IntegranteBanda i2b3 = new IntegranteBanda(estudiantes.get(17));
+        b3.addIntegrante(i2b3);
+        IntegranteBanda i3b3 = new IntegranteBanda(estudiantes.get(18));
+        b3.addIntegrante(i3b3);
+        
+        
+        //competencia de bandas activas
+       
+        ArrayList<Jurado> jurados = new ArrayList<>();
+        Jurado j1 = new Jurado("10203","Pablo Alcívar","Bio");
+        jurados.add(j1);
+        Jurado j2 = new Jurado("13123","Camila Calderón","Bio");
+        jurados.add(j2);
+        Jurado j3 = new Jurado("10203","Junior Mendoza","Bio");
+        jurados.add(j3);
+        
+        CompetenciaBandas cb1 = new CompetenciaBandas("10/10/2021","13:45","$80","$70","50",jurados);
+        
+        cb1.agregarBanda(b1);
+        cb1.agregarBanda(b2);
+        cb1.agregarBanda(b3);
+        
+        
+        //competencia de bandas inactivas
+        
+        CompetenciaBandas cb2 = new CompetenciaBandas("01/04/2021","10:45","$80","$70","50",jurados);
+        
+        cb2.agregarBanda(b1);
+        cb2.agregarBanda(b2);
+        cb2.agregarBanda(b3);
+        
+        cb2.agregarBandasGanadoras(b1);
+        b1.setLugar(1);
+        cb2.agregarBandasGanadoras(b2);
+        b1.setLugar(2);
+        cb2.agregarBandasGanadoras(b3);
+        b1.setLugar(3);
+        
+        ArrayList<CompetenciaBandas> listaCBandas = new ArrayList<>();
+        listaCBandas.add(cb1);
+        listaCBandas.add(cb2);
+        //agregar a CompetenciaBM
+        competenciaBM = new BandasMusicales(listaCBandas);
+        
+    }
+    
+     public static void cargarTorneos(){
+        //torneo activo
+        Torneo t1= new Torneo("10/07/2021","14:45","Mario Bros","$100","$90","$80");
+        Gamer g1 = new Gamer(estudiantes.get(19));
+        t1.addGamer(g1);
+        Gamer g2 = new Gamer(estudiantes.get(20));
+        t1.addGamer(g2);
+        Gamer g3=new Gamer(estudiantes.get(21));
+        t1.addGamer(g3);
+
+        
+        //torneo inactivo
+
+        Torneo t2= new Torneo("17/12/2020","11:30","Donkey Kong","copa","medalla","medalla");
+        t2.addGamer(g1);
+        t2.addGamer(g2);
+        t2.addGamer(g3);
+        
+        t2.addGanador(g2);
+        t2.addGanador(g3);
+        t2.addGanador(g1);
+
+        //agregar a competenciaVJ
+        ArrayList<Torneo> listaTorneos = new ArrayList<>();
+        listaTorneos.add(t1);
+        listaTorneos.add(t2);
+        
+        
+        competenciaVJ = new TorneosVideojuegos(listaTorneos);
+        
+    }
+}
