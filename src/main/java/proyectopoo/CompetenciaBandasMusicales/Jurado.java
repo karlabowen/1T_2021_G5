@@ -5,10 +5,15 @@
  */
 package proyectopoo.CompetenciaBandasMusicales;
 
-/**
- *
- * @author Karla
- */
-public class Jurado {
+import proyectopoo.Persona;
+
+public class Jurado extends Persona{
+    private String bio;
+
+    public Jurado(String id, String nombre,String bio) {
+        super(id, nombre);
+        this.bio = bio;
+    }
+    
     
 }
