@@ -56,7 +56,7 @@ public class CompetenciaBandas extends Competencia{
             
             Banda band=new Banda(nombre,cancion); //crea objeto banda
             agregarBanda(band); //agrega a la competencia
-            System.out.println(band.ingresoIntegrantes(num)); //funcionamiento de ingresode integrantes en clase Banda
+            System.out.println(band.ingresoIntegrantes(num, bandasMusicales)); //funcionamiento de ingresode integrantes en clase Banda
 
             System.out.println("* Desea ingresar otra banda (S/N)? *");
             op = sc.nextLine();
