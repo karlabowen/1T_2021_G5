@@ -5,10 +5,34 @@
  */
 package proyectopoo.TorneoVideoJuegos;
 
+import proyectopoo.Estudiante;
+
 /**
  *
  * @author Karla
  */
-public class Gamer {
+public class Gamer{
+    private String id;
+    private String nombre;
+    private int lugar;
+
+    public Gamer(Estudiante e) { //convierte al estudiante en gamer
+        this.id=e.getId();
+        this.nombre=e.getNombre();
+    }
+    //getters
+    public String getId() {
+        return id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+    //setters
+    public void setLugar(int lugar) {
+        this.lugar = lugar;
+    }
+
+    
     
 }
