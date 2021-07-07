@@ -31,14 +31,14 @@ public class Proyectopoo {
     private static ArrayList<Estudiante> estudiantes = new ArrayList<>();
     public static Carreras5k competenciaCarreras ;
     public static BandasMusicales competenciaBM ;
-    // crear un TorneosVideojuegos competenciaVJ ;    
+    public static TorneosVideojuegos competenciaVJ ;    
     
     public static void main(String[] args) {
         // TODO code application logic here
         Proyectopoo m=new Proyectopoo();
         m.cargarEstudiantes();
-        
-        
+        cargarCompetenciasBM();
+        cargarTorneos();
         bienvenido();
         menuPrincipal();
 
@@ -99,7 +99,7 @@ public class Proyectopoo {
             System.out.println("");
             System.out.println("*** Carrera 5K ***");
             System.out.println("");
-            /////
+            competenciaCarreras.mostrarCarreras();
             System.out.println("");
             System.out.println("1. Crear nueva carrera");
             System.out.println("2. Registrar participantes");
@@ -113,19 +113,20 @@ public class Proyectopoo {
                     switch (opcion) {
                         case 1:
                             System.out.println("*** Crear nueva carrera ***");
+                            competenciaCarreras.crearCarrera();
                             /////
                             
                             break;
                         case 2:
                             System.out.println("*** Registrar participantes ***");
-                            registrarParticipante();
+                            System.out.println(competenciaCarreras.registrarParticipantes());
                             break;
                         case 3:
                             System.out.println("*** Registrar ganadores ***");
-                            registrarGanador();
+                            System.out.println(competenciaCarreras.registrarGanadores());
                             break;
                         case 4:
-                            System.out.println("Menu Principal");
+                            System.out.println("*** Menú Principal ****");
                             break;
                     }
                 } else {
@@ -136,11 +137,73 @@ public class Proyectopoo {
 
     }
      private static void competenciaBandaM() {
-// igual a carrera
+          int opcion = -1;
+        while (opcion != 4) {
+            System.out.println("");
+            System.out.println("*** Competencia de Bandas musicales ***");
+            System.out.println("");
+            competenciaBM.mostrarCompetenciaBandas(); //mostrar informacion de competencia de bandas
+            System.out.println("");
+            System.out.println("1. Crear nueva competencia");
+            System.out.println("2. Registrar bandas");
+            System.out.println("3. Registrar ganadores");
+            System.out.println("4. Volver al menú principal");
+            System.out.println("Ingrese una opción");
+            if (sc.hasNextInt()) {
+                opcion = sc.nextInt();
+                if (opcion == 1 || opcion == 2 || opcion == 3 || opcion == 4) {
+                    sc.nextLine();
+                    switch (opcion) {
+                        case 1:
+                            System.out.println("");
+                            System.out.println("** Creación de bandas musicales ** ");
+                            competenciaBM.crearCompetencia();
+                            break;
+                        case 2:
+                            System.out.println("");
+                            System.out.println("*** Registrar bandas ***");
+                            System.out.println(competenciaBM.registrarBandas());
+                            break;
+                        case 3:
+                            System.out.println("");
+                            System.out.println("*** Registrar ganadores ***");
+                            break;
+                        case 4:
+                            System.out.println("");
+                            System.out.println("*** Menú Principal ****");
+                            break;
+                    }
+                } else {
+                    System.out.println("Opcion no Válida");
+                }
+            }
+        }
     }
     
      private static void torneoVG() {
-// igual a carrera
+        int opcion = -1;
+        while (opcion != 4) {
+            System.out.println("");
+            System.out.println("*** Torneo de videojuegos ***");
+            System.out.println("");
+            competenciaVJ.mostrarTorneos();
+            System.out.println("");
+            System.out.println("1. Crear nuevo torneo");
+            System.out.println("2. Registrar participantes");
+            System.out.println("3. Registrar ganadores");
+            System.out.println("4. Volver al menú principal");
+            System.out.println("Ingrese una opción");
+            if (sc.hasNextInt()) {
+                opcion = sc.nextInt();
+                if (opcion == 1 || opcion == 2 || opcion == 3 || opcion == 4) {
+                    sc.nextLine();
+                    switch (opcion) {
+                        case 1:
+                            System.out.println("");
+                            System.out.println("*** Crear nuevo torneo***");
+                            break;
+                        case 2:
+                            System.out.println("");
     }
 
      private static Carrera registrarCarrera() {
