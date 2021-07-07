@@ -68,3 +68,54 @@ public class Banda {
         System.out.println("No existe estudiante con ese ID");
         return verificarIntegrante(i);
     }
+
+ //verifa que el rol sea ingresado de dorma correcta y devuelve RolBanda
+    private RolBanda verificaRol(){
+        System.out.println("Rol(CANTANTE,GUITARRISTA,BAJISTA,BATERISTA,OTRO):");
+        String rol = sc.nextLine();
+        boolean op=true;
+        while (op){
+            if(null!=rol) 
+                switch (rol) {
+                case "CANTANTE":
+                    return RolBanda.CANTANTE;
+                case "GUITARRISTA":
+                    return RolBanda.GUITARRISTA;
+                case "BAJISTA":
+                    return RolBanda.BAJISTA;
+                case "BATERISTA":
+                    return RolBanda.BATERISTA;   
+                case "OTRO":
+                    return RolBanda.OTRO;
+                default:
+                    System.out.println("!!!Rol incorrecto!!!");
+                    return verificaRol();
+            }
+        }  
+        return null;    
+    }
+    
+    //verifia que no exisa integrante en la banda
+    public boolean contieneIntegrante(IntegranteBanda i){
+        for(IntegranteBanda integrante: integrantes){
+            if(integrante.getId().equals(i.getId())){
+                return true;
+            }
+        }
+        return false;
+    }
+    //agrega integrante
+    public void addIntegrante(IntegranteBanda i){
+        integrantes.add(i);
+    }
+
+    @Override
+    public String toString() {
+        return "Id: "+idBanda+"  Nombre:"+nombre;
+    }
+    
+    
+    
+    
+    
+}
