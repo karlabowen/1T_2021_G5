@@ -20,4 +20,9 @@ public class IntegranteBanda {
     public String getId() {
         return id;
     }
+
+    public void setRol(RolBanda rol) {
+        this.rol = rol;
+    }
+    
 }
