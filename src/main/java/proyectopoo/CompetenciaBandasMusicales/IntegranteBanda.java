@@ -4,10 +4,19 @@
  * and open the template in the editor.
  */
 package proyectopoo.CompetenciaBandasMusicales;
-/**
- *
- * @author Karla
- */
+
+import proyectopoo.Estudiante;
+
 public class IntegranteBanda {
-    
-}
+    private String id;
+    private String nombre;
+    private RolBanda rol;
+
+    public IntegranteBanda(Estudiante e) {
+        this.id=e.getId();
+        this.nombre=e.getNombre();
+    }
+  
+    public String getId() {
+        return id;
+    }
