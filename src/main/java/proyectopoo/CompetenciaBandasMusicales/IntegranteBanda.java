@@ -20,3 +20,4 @@ public class IntegranteBanda {
     public String getId() {
         return id;
     }
+}
