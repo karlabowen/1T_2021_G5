@@ -204,6 +204,25 @@ public class Proyectopoo {
                             break;
                         case 2:
                             System.out.println("");
+                             System.out.println("*** Registrar participantes ***");
+                            System.out.println(competenciaVJ.registrarParticipantes());
+                            break;
+                        case 3:
+                            System.out.println("");
+                            System.out.println("*** Registrar ganadores ***");
+                            System.out.println(competenciaVJ.registrarGanadores());
+                            break;
+                        case 4:
+                            System.out.println("");
+                            System.out.println("*** Menú Principal ****");
+                            break;
+                    }
+                } else {
+                    System.out.println("Opcion no Válida");
+                }
+            }
+        }
+
     }
 
      private static Carrera registrarCarrera() {
@@ -255,66 +274,48 @@ public class Proyectopoo {
    
     }
      
-    private static void registrarParticipante() {
-        System.out.println("Ingrese Id de la carrera: ");
-        int id = sc.nextInt();
-        if(buscarCarrera(id)!=null){
-            System.out.println( "Registro de participantes en carrera del "+ buscarCarrera(id).getFecha());
-            System.out.print("ID del estudiante:");
-            int idE =sc.nextInt();
-            do{
-                System.out.print("ID del estudiante:");
-                idE =sc.nextInt();
-            }while(idE!=0);
-        }
-    }
-        private static Carrera buscarCarrera(int Id){
-        for(Carrera c: carreras){
-            if (c.getId()==Id){
-                return c;
-            }
-        }return null;
-    }
-    private static void registrarGanador() {
-        System.out.println("Ingreso de primero lugar");
-        System.out.print("Id: ");
-        int id= sc.nextInt();
-        obtenerParticipante(id);
-        System.out.println("Tiempo: ");
-       // String tiempo= sc.nextLine();
-       Date tiempo=null;
-        obtenerParticipante(id).setTiempo(tiempo);
-        System.out.println("Ingreso de segundo lugar");
-        System.out.print("Id: ");
-        String id2= sc.nextLine();
-        obtenerParticipante(id);
-        System.out.println("Tiempo: ");
-       // String tiempo= sc.nextLine();
-       Date tiempo2=null;
-        obtenerParticipante(id).setTiempo(tiempo2);
-        System.out.println("Ingreso de tercer lugar");
-        System.out.print("Id: ");
-        String id3= sc.nextLine();
-        obtenerParticipante(id);
-        System.out.println("Tiempo: ");
-       // String tiempo= sc.nextLine();
-       Date tiempo3=null;
-        obtenerParticipante(id).setTiempo(tiempo3);
+     public static void cargarCarreras(){
+        //carrera activa
+        Carrera c1 = new Carrera("03/07/2021","10:10","$50 y medalla","$20 y medalla","$10 y medalla");
+        Participante5k pc1 = new Participante5k(estudiantes.get(0));
+        c1.addParticipante(pc1);
+        Participante5k pc2 = new Participante5k(estudiantes.get(1));
+        c1.addParticipante(pc2);
+        Participante5k pc3 = new Participante5k(estudiantes.get(3));
+        c1.addParticipante(pc3);
         
+        //carrera inactiva
+        Carrera c2 = new Carrera("10/01/2021","12:30","$700 y medalla de oro","$300 y medalla de plata ","$100 y medalla de bronce");
+        Participante5k p1c2 = new Participante5k(estudiantes.get(4));
+        c2.addParticipante(p1c2);
+        Participante5k p2c2 = new Participante5k(estudiantes.get(5));
+        c2.addParticipante(p2c2);
+        Participante5k p3c2 = new Participante5k(estudiantes.get(6));
+        c2.addParticipante(p3c2);
+        Participante5k p4c2 = new Participante5k(estudiantes.get(7));
+        c2.addParticipante(p4c2);
+        Participante5k p5c2 = new Participante5k(estudiantes.get(8));
+        c2.addParticipante(p5c2);
+        Participante5k p6c2 = new Participante5k(estudiantes.get(9));
+        c2.addParticipante(p6c2);
         
+        c2.agregarGanador(p1c2);
+        p1c2.setLugar(1);
+        p1c2.setTiempo("2:30 h");
+        
+        c2.agregarGanador(p3c2);
+        p3c2.setLugar(2);
+        p3c2.setTiempo("2:28 h");
+        
+        c2.agregarGanador(p6c2);
+        p3c2.setLugar(3);
+        p3c2.setTiempo("2:20 h");
+                
+        ArrayList<Carrera> carreras = new ArrayList<>();
+        carreras.add(c1);
+        carreras.add(c2);
+        
+        //agregar las carrera en competenciaCarreras
+        competenciaCarreras = new Carreras5k(carreras);
+      
     }
-
-    private static Participante5k obtenerParticipante(int id) {
-        System.out.println("Obtiene participante");
-         
-        return new Participante5k(null, 0, "Andree");//para prueba
-    }
-
-    
-
-   
-
-    
-
-   
-}
