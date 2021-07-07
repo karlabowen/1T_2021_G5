@@ -10,7 +10,7 @@ import proyectopoo.Estudiante;
 import proyectopoo.Proyectopoo;
 /**
  *
- * @author Karla
+ * @author Karla Bowen
  */
 public class Carreras5k {
    private ArrayList<Carrera> carreras;
