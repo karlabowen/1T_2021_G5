@@ -156,7 +156,7 @@ public class Carrera extends Competencia{
 
     @Override
     public String toString() {
-        return  Id + "  fecha=" + fecha + "  hora=" + hora + " Cantidad de participantes="+cantParticipante;
+        return  "ID:"+idCarrera + "  Fecha:"+fecha+ "  Hora:"+hora+"  Cantidad de Participantes: "+ participantes.size();
     }
 
  
