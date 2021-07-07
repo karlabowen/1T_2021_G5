@@ -44,5 +44,40 @@ public class Carreras5k {
         carreras.add(new Carrera(fecha,hora,p1,p2,p3));
         
     }
+    //metodo para registrar participantes
+    public String registrarParticipantes(){
+        System.out.println("Ingrese ID de la carrera: ");
+        int idc = sc.nextInt();
+        sc.nextLine();
+        for(Carrera c: carreras){
+            if(c.getIdCarrera()==idc){ //comparar si es la carrera indicada por el usuario
+                if((c.getGanadores()).size()==0){ //comprobar que no se haya terminado
+                    return c.resgistrarParticipantes();
+                }else{
+                    return "No se puede registrar ... Carrera ya terminada";
+                }
+           
+            }  
+        }
+        //si no retorno entonces el id ingresado no existe
+         System.out.println("No existe Carrera con ese id");
+         return registrarParticipantes();
+         
+    }
     
+    //método registrar ganadores que se llamará en la clase principal
+    public String registrarGanadores(){
+        System.out.println("Ingrese ID de la carrera: ");
+        int id = sc.nextInt();
+        sc.nextLine();
+        for(Carrera c: carreras){
+            if(c.getIdCarrera()==id){//comparar si es la carrera indicada por el usuario
+                return c.registrarGanadores(); //llama al metodo reistrar ganadores de la clase Carrea
+                
+            }
+        }
+        //si no retorno entonces el id ingresado no existe
+        System.out.println("No existe Carrera con ese id");
+        return registrarGanadores(); //vuelva a llamar a la función hasta que el id ingresado sea el correcto
+    }
 }
