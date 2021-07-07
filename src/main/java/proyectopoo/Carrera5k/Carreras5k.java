@@ -26,4 +26,23 @@ public class Carreras5k {
             System.out.println(c);
         }
     }
+    
+    //metodo para crear carrera
+    public void crearCarrera(){
+        System.out.println("** Creacion de nueva carrera **");
+        System.out.println("Fecha(dd/mm/yyyy): ");
+        String fecha = sc.nextLine();
+        System.out.println("Hora(hh:mm): ");
+        String hora = sc.nextLine();
+        System.out.println("Premio primer lugar: ");
+        String p1 = sc.nextLine();
+        System.out.println("Premio segundo lugar: ");
+        String p2 = sc.nextLine();
+        System.out.println("Premio tercer lugar: ");
+        String p3 = sc.nextLine();
+        
+        carreras.add(new Carrera(fecha,hora,p1,p2,p3));
+        
+    }
+    
 }
