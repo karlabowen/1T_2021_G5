@@ -52,61 +52,107 @@ public class Carrera extends Competencia{
         return " ";
 
     }
+        //verifica que el participante se repita un estudiante y si no es el caso, lo agrega
+    private String verificarIdParticipante(String id){
+        for(Estudiante e: Proyectopoo.estudiantes){
+            if(e.getId().equals(id) ){ //compara para hallar id del estudiante ingresado
+                Participante5k p = new Participante5k(e);
+                if(contieneParticipante(p)){ //verifica que no exista el estudiante
+                    return "Participante existente";
+                    
+                }else{
+                    addParticipante(p);
+                    return "Estudiante "+ e.getNombre()+ " registrado";
+                }
+                
+            }
+        }
+        return "No existe Estudiante con ese id";
+      
+    }
+   
+    
+    //true si el participante ya existe, falso si no existe
+    private boolean contieneParticipante( Participante5k p){
+        for (Participante5k part:participantes){
+            if(p.getId().equals(part.getId()))
+            return true;
+        }
+        return false;
+    }
+    
+    public void addParticipante(Participante5k p){
+        participantes.add(p);
+    }
+    
+    //método principal para registrar ganadores
+    public String registrarGanadores(){
+        if(participantes.size()<3){ //si no hay al menos tres participantes entonces no se podrán registrar ganadores
+            return "No existe número mínimo de participantes ";
+        }
+        if(ganadores.size()==0){
+            System.out.println("");
+            System.out.println("** Acontinuación se solicitará el ID de los 3 primeros lugares **");
+            System.out.println("** Ingreso del Primer Lugar **");
+            System.out.println(agregarGanador(1)); //agrega ganador
+            
+            System.out.println("");
+            System.out.println("** Ingreso del Segundo Lugar **");
+            System.out.println(agregarGanador(2)); //agrega ganador
+            
+            System.out.println("");
+            System.out.println("** Ingreso del Tercer Lugar **");
+             System.out.println(agregarGanador(3)); //agrega ganador 2
+            
+            return "";
+        }
+        return "Carrera ya terminada, no puede registrar ganadores";
+        
+    }
+    
+    
+    //agrega ganador de carrera
+    private String agregarGanador(int lugar){
 
-    public int getCantParticipante() {
-        return cantParticipante;
-    }
+        System.out.println("ID: ");
+        String id = sc.nextLine();
+        System.out.println("Tiempo: ");
+        String tiempo = sc.nextLine();
+        
+        for(Participante5k p: participantes){
+            if(p.getId().equals(id)){
 
-    public void setCantParticipante(int cantParticipante) {
-        this.cantParticipante = cantParticipante;
+                if(existeGanador(p)){ //llama al método para verificar el ganador
+                    System.out.println("Ya ha sido agregado como ganador");
+                    return agregarGanador(lugar);
+                }else{
+                    p.setLugar(lugar);
+                    p.setTiempo(tiempo);
+                    agregarGanador(p);
+                    return "Ganador agregado con éxito";
+                }
+                
+            }
+        }
+        System.out.println("No existe participante con ese ID");
+        return agregarGanador(lugar);
     }
-    public int getId() {
-        return Id;
+    
+    //verifica que no exista ganador 
+    private boolean existeGanador(Participante5k p){
+        for (Participante5k part:ganadores){
+            if(p.getId().equals(part.getId()))
+            return true;
+        }
+        return false;
     }
+    
+    //agrega ganador a carrera
+    public void agregarGanador(Participante5k p){
+        ganadores.add(p);
+    }
+    
 
-    public void setId(int Id) {
-        this.Id = Id;
-    }
-
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
-
-    public Date getHora() {
-        return hora;
-    }
-
-    public void setHora(Date hora) {
-        this.hora = hora;
-    }
-
-    public String getPremio1l() {
-        return premio1l;
-    }
-
-    public void setPremio1l(String premio1l) {
-        this.premio1l = premio1l;
-    }
-
-    public String getPremio2l() {
-        return premio2l;
-    }
-
-    public void setPremio2l(String premio2l) {
-        this.premio2l = premio2l;
-    }
-
-    public String getPremio3l() {
-        return premio3l;
-    }
-
-    public void setPremio3l(String premio3l) {
-        this.premio3l = premio3l;
-    }
 
     @Override
     public String toString() {
