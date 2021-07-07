@@ -39,24 +39,25 @@ public class Banda {
     public void setLugar(int lugar) {
         this.lugar = lugar;
     }
+    
     //ingresa numerode integrates que el usuario desea
-    public String ingresoIntegrantes(int num){
+    public String ingresoIntegrantes(int num,ArrayList<Banda> bandasMusicales){
             for(int i=1; i<=num;i++){
-                System.out.println(verificarIntegrante(i));
+                System.out.println(verificarIntegrante(i,bandasMusicales));
             }
         return "";
     }
       
     //valida el ingreso de integrante y que cumpla todos los requisistos y si cumple lo agrega
-    private String verificarIntegrante(int i){
+    private String verificarIntegrante(int i, ArrayList<Banda> bandasMusicales){
         System.out.println("ID integrante "+i+ ": ");
         String idEst = sc.nextLine();
         for(Estudiante e: Proyectopoo.estudiantes){
             if(e.getId().equals(idEst)){ //compara integrantes
                 IntegranteBanda intBanda = new IntegranteBanda(e); //crea objeto integrante
-                if(contieneIntegrante(intBanda)){ //verifica que no exista
+                if(contieneIntegrante(intBanda,bandasMusicales)){ //verifica que no exista
                    System.out.println("Integrante ya existente");
-                   return verificarIntegrante(i);
+                   return verificarIntegrante(i,bandasMusicales);
                 }
                 //en el caso de que no exista
                 intBanda.setRol(verificaRol()); //agrega el rol
@@ -66,7 +67,7 @@ public class Banda {
             }
         }
         System.out.println("No existe estudiante con ese ID");
-        return verificarIntegrante(i);
+        return verificarIntegrante(i,bandasMusicales);
     }
 
  //verifa que el rol sea ingresado de dorma correcta y devuelve RolBanda
@@ -96,12 +97,15 @@ public class Banda {
     }
     
     //verifia que no exisa integrante en la banda
-    public boolean contieneIntegrante(IntegranteBanda i){
-        for(IntegranteBanda integrante: integrantes){
-            if(integrante.getId().equals(i.getId())){
-                return true;
+    public boolean contieneIntegrante(IntegranteBanda i, ArrayList<Banda> bandasMusicales){
+        for(Banda b:bandasMusicales){
+            for(IntegranteBanda integrante: integrantes){
+                if(integrante.getId().equals(i.getId())){
+                    System.out.println("Integrante ya existente en banda "+ b.getNombre());
+                }
+                    return true;
+                }
             }
-        }
         return false;
     }
     //agrega integrante
