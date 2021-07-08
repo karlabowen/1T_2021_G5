@@ -61,7 +61,6 @@ public class Banda {
             if(e.getId().equals(idEst)){ //compara integrantes
                 IntegranteBanda intBanda = new IntegranteBanda(e); //crea objeto integrante
                 if(contieneIntegrante(intBanda,bandasMusicales)){ //verifica que no exista
-                   System.out.println("Integrante ya existente");
                    return verificarIntegrante(i,bandasMusicales);
                 }
                 //en el caso de que no exista
@@ -107,8 +106,9 @@ public class Banda {
             for(IntegranteBanda integrante: b.getIntegrantes()){
                 if(integrante.getId().equals(i.getId())){
                     System.out.println("Integrante ya existente en banda "+ b.getNombre());
-                }
                     return true;
+                }
+                    
                 }
             }
         return false;
