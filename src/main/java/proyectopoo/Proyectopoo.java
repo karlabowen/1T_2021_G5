@@ -19,7 +19,7 @@ import proyectopoo.TorneoVideoJuegos.*;
 
 
 
-/**
+/***
  *
  * @author jerry
  */
