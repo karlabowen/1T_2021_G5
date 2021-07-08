@@ -9,7 +9,7 @@ import proyectopoo.CompetenciaBandasMusicales.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 import proyectopoo.Competencia;
-/**
+/***
  *
  * @author Karla
  */
