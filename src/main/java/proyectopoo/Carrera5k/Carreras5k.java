@@ -8,7 +8,7 @@ package proyectopoo.Carrera5k;
 import java.util.*;
 import proyectopoo.Estudiante;
 import proyectopoo.Proyectopoo;
-/**
+/***
  *
  * @author Karla Bowen
  */
