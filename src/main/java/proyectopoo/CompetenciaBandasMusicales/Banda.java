@@ -99,7 +99,7 @@ public class Banda {
     //verifia que no exisa integrante en la banda
     public boolean contieneIntegrante(IntegranteBanda i, ArrayList<Banda> bandasMusicales){
         for(Banda b:bandasMusicales){
-            for(IntegranteBanda integrante: integrantes){
+            //for(IntegranteBanda integrante: b.getIntegrantes()){
                 if(integrante.getId().equals(i.getId())){
                     System.out.println("Integrante ya existente en banda "+ b.getNombre());
                 }
