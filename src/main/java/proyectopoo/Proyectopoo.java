@@ -1,4 +1,4 @@
-/*
+/**
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -12,11 +12,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Scanner;
 import proyectopoo.Carrera5k.*;
 import proyectopoo.CompetenciaBandasMusicales.*;
-import proyectopoo.TorneoVideojuegos.*;
+import proyectopoo.TorneoVideoJuegos.*;
+
+
 
 /**
  *
@@ -28,7 +29,7 @@ public class Proyectopoo {
      * @param args the command line arguments
      */
     private static Scanner sc = new Scanner(System.in);
-    private static ArrayList<Estudiante> estudiantes = new ArrayList<>();
+    public static ArrayList<Estudiante> estudiantes = new ArrayList<>();
     public static Carreras5k competenciaCarreras ;
     public static BandasMusicales competenciaBM ;
     public static TorneosVideojuegos competenciaVJ ;    
@@ -37,6 +38,7 @@ public class Proyectopoo {
         // TODO code application logic here
         Proyectopoo m=new Proyectopoo();
         m.cargarEstudiantes();
+        cargarCarreras();
         cargarCompetenciasBM();
         cargarTorneos();
         bienvenido();
@@ -97,9 +99,9 @@ public class Proyectopoo {
         int opcion = -1;
         while (opcion != 4) {
             System.out.println("");
-            System.out.println("*** Carrera 5K ***");
+            System.out.println("* Carrera 5K *");
             System.out.println("");
-            competenciaCarreras.mostrarCarreras();
+            competenciaCarreras.mostrarCarreras(); //mostrar info de competencia de carreras
             System.out.println("");
             System.out.println("1. Crear nueva carrera");
             System.out.println("2. Registrar participantes");
@@ -112,25 +114,27 @@ public class Proyectopoo {
                     sc.nextLine();
                     switch (opcion) {
                         case 1:
-                            System.out.println("*** Crear nueva carrera ***");
+                            System.out.println("* Crear nueva carrera *");
                             competenciaCarreras.crearCarrera();
-                            /////
-                            
+                            //registrarCarrera();
                             break;
                         case 2:
-                            System.out.println("*** Registrar participantes ***");
-                            System.out.println(competenciaCarreras.registrarParticipantes());
+                            System.out.println("* Registrar participantes *");
+                            System.out.println(competenciaCarreras.registrarParticipantes());                            
+                            //registrarParticipante();
                             break;
                         case 3:
-                            System.out.println("*** Registrar ganadores ***");
-                            System.out.println(competenciaCarreras.registrarGanadores());
+                            System.out.println("* Registrar ganadores *");
+                            ///registrarGanador();
+                            System.out.println(competenciaCarreras.registrarGanadores());  
                             break;
                         case 4:
-                            System.out.println("*** Menú Principal ****");
+                            System.out.println("");
+                            System.out.println("* Menú Principal **");
                             break;
                     }
                 } else {
-                    System.out.println("Opcion no Valida");
+                    System.out.println("Opcion no Válida");
                 }
             }
         }
@@ -225,22 +229,7 @@ public class Proyectopoo {
 
     }
 
-     private static Carrera registrarCarrera() {
-        System.out.println("Creación de carrera"); 
-        System.out.println("Fecha (dd/mm/yyyy):");
-        //String
-        Date fecha=null;                   
-        System.out.println("Hora(hh:mm):"); 
-        Date hora=null;
-        System.out.println("Premio primer lugar:"); 
-        String premio1l=sc.nextLine();
-        System.out.println("Premio segundo lugar:"); 
-        String premio2l=sc.nextLine();
-        System.out.println("Premio tercer lugar:");
-        String premio3l=sc.nextLine();
-        return new Carrera(Id(), fecha, hora, premio1l, premio2l, premio3l);
     
-    }
      
      public void cargarEstudiantes() {
         //se crea inputstream con el metodo getresourceastream para que funcione con el jar
@@ -277,12 +266,6 @@ public class Proyectopoo {
      public static void cargarCarreras(){
         //carrera activa
         Carrera c1 = new Carrera("03/07/2021","10:10","$50 y medalla","$20 y medalla","$10 y medalla");
-        Participante5k pc1 = new Participante5k(estudiantes.get(0));
-        c1.addParticipante(pc1);
-        Participante5k pc2 = new Participante5k(estudiantes.get(1));
-        c1.addParticipante(pc2);
-        Participante5k pc3 = new Participante5k(estudiantes.get(3));
-        c1.addParticipante(pc3);
         
         //carrera inactiva
         Carrera c2 = new Carrera("10/01/2021","12:30","$700 y medalla de oro","$300 y medalla de plata ","$100 y medalla de bronce");
@@ -363,12 +346,8 @@ public class Proyectopoo {
         jurados.add(j3);
         
         CompetenciaBandas cb1 = new CompetenciaBandas("10/10/2021","13:45","$80","$70","50",jurados);
-        
-        cb1.agregarBanda(b1);
-        cb1.agregarBanda(b2);
-        cb1.agregarBanda(b3);
-        
-        
+ 
+     
         //competencia de bandas inactivas
         
         CompetenciaBandas cb2 = new CompetenciaBandas("01/04/2021","10:45","$80","$70","50",jurados);
@@ -395,16 +374,12 @@ public class Proyectopoo {
      public static void cargarTorneos(){
         //torneo activo
         Torneo t1= new Torneo("10/07/2021","14:45","Mario Bros","$100","$90","$80");
-        Gamer g1 = new Gamer(estudiantes.get(19));
-        t1.addGamer(g1);
-        Gamer g2 = new Gamer(estudiantes.get(20));
-        t1.addGamer(g2);
-        Gamer g3=new Gamer(estudiantes.get(21));
-        t1.addGamer(g3);
-
+     
         
         //torneo inactivo
-
+        Gamer g1 = new Gamer(estudiantes.get(19));
+        Gamer g2 = new Gamer(estudiantes.get(20));
+        Gamer g3=new Gamer(estudiantes.get(21));
         Torneo t2= new Torneo("17/12/2020","11:30","Donkey Kong","copa","medalla","medalla");
         t2.addGamer(g1);
         t2.addGamer(g2);
