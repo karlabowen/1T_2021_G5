@@ -13,7 +13,7 @@ public class Participante5k {
         this.id = e.getId();
         this.nombre = e.getNombre();
     }
-    //getters
+    //getterss
     public String getId() {
         return id;
     }
